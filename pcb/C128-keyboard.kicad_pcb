@@ -2371,7 +2371,7 @@
 				)
 			)
 		)
-		(property "Value" "Neo128"
+		(property "Value" "C128"
 			(at 0 63.29 90)
 			(layer "F.Fab")
 			(uuid "d1927f36-35ca-48d3-83ef-07ddd92f2a46")
@@ -2383,7 +2383,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 0 0 270)
+			(at 0 0 90)
 			(layer "F.Fab")
 			(hide yes)
 			(uuid "beb5b345-1c34-43cc-b982-150ca36da3cf")
@@ -2395,7 +2395,7 @@
 			)
 		)
 		(property "Description" ""
-			(at 0 0 270)
+			(at 0 0 90)
 			(layer "F.Fab")
 			(hide yes)
 			(uuid "712ce5c1-6919-41be-9ad2-b578b27ec302")
@@ -12227,6 +12227,7 @@
 		(property "Reference" "Plate Ground"
 			(at 0 -4.15 0)
 			(layer "B.SilkS")
+			(hide yes)
 			(uuid "3c6b0dd4-3810-441b-a876-49e341ceaa7a")
 			(effects
 				(font
@@ -26221,6 +26222,187 @@
 		(layer "Edge.Cuts")
 		(uuid "ff0421b7-50f5-40b7-959e-32ec09c22a0c")
 	)
+	(gr_text "ROW6"
+		(at 316.75 106.425 90)
+		(layer "B.SilkS")
+		(uuid "00b09f3e-904d-44a0-a0c7-9d2c7f32f600")
+		(effects
+			(font
+				(size 1.5 1.5)
+				(thickness 0.3)
+				(bold yes)
+			)
+			(justify left bottom mirror)
+		)
+	)
+	(gr_text "ROW7"
+		(at 324.4 106.375 90)
+		(layer "B.SilkS")
+		(uuid "0346e780-f882-4e47-90a8-eacb9d9565a5")
+		(effects
+			(font
+				(size 1.5 1.5)
+				(thickness 0.3)
+				(bold yes)
+			)
+			(justify left bottom mirror)
+		)
+	)
+	(gr_text "COL9"
+		(at 344.725 106.4 90)
+		(layer "B.SilkS")
+		(uuid "0e5dd9a2-c600-4566-9f6e-aa9e00ed9085")
+		(effects
+			(font
+				(size 1.5 1.5)
+				(thickness 0.3)
+				(bold yes)
+			)
+			(justify left bottom mirror)
+		)
+	)
+	(gr_text "ROW5"
+		(at 319.275 106.425 90)
+		(layer "B.SilkS")
+		(uuid "16751123-259b-4ee6-9e52-9c3cbaf49e9b")
+		(effects
+			(font
+				(size 1.5 1.5)
+				(thickness 0.3)
+				(bold yes)
+			)
+			(justify left bottom mirror)
+		)
+	)
+	(gr_text "COL3"
+		(at 298.9 106.425 90)
+		(layer "B.SilkS")
+		(uuid "1d35bc95-e13f-4a7b-b90a-57026aca4005")
+		(effects
+			(font
+				(size 1.5 1.5)
+				(thickness 0.3)
+				(bold yes)
+			)
+			(justify left bottom mirror)
+		)
+	)
+	(gr_text "COL5"
+		(at 304.05 106.45 90)
+		(layer "B.SilkS")
+		(uuid "23975886-efee-4ac9-a57d-c0adca1be338")
+		(effects
+			(font
+				(size 1.5 1.5)
+				(thickness 0.3)
+				(bold yes)
+			)
+			(justify left bottom mirror)
+		)
+	)
+	(gr_text "GND"
+		(at 291.375 106.45 90)
+		(layer "B.SilkS")
+		(uuid "3c618264-13ce-4e01-a64f-68be29ed1ad0")
+		(effects
+			(font
+				(size 1.5 1.5)
+				(thickness 0.3)
+				(bold yes)
+			)
+			(justify left bottom mirror)
+		)
+	)
+	(gr_text "40/80"
+		(at 339.575 106.425 90)
+		(layer "B.SilkS")
+		(uuid "4837e093-f4b8-435a-9fa9-20aed2ea0040")
+		(effects
+			(font
+				(size 1.5 1.5)
+				(thickness 0.3)
+				(bold yes)
+			)
+			(justify left bottom mirror)
+		)
+	)
+	(gr_text "ROW2"
+		(at 326.9 106.4 90)
+		(layer "B.SilkS")
+		(uuid "4c3ebbc5-a059-4a7a-ab40-f7879f3231db")
+		(effects
+			(font
+				(size 1.5 1.5)
+				(thickness 0.3)
+				(bold yes)
+			)
+			(justify left bottom mirror)
+		)
+	)
+	(gr_text "Original design by Johan Grip (c128.se)\nModified for The C128 Keyboard Project by Jeff Flitton (jeff@flitton.dev)\n\ncodeberg.org/jflitton/the-c128-keyboard-project"
+		(at 462.15 201.425 0)
+		(layer "B.SilkS")
+		(uuid "4e1f99d9-f740-45bc-a06b-9763f2f8ebe9")
+		(effects
+			(font
+				(size 2 2)
+				(thickness 0.1875)
+			)
+			(justify left bottom mirror)
+		)
+	)
+	(gr_text "COL1"
+		(at 293.95 106.45 90)
+		(layer "B.SilkS")
+		(uuid "4f32093f-7a30-4acf-a76e-b0e89f4cee69")
+		(effects
+			(font
+				(size 1.5 1.5)
+				(thickness 0.3)
+				(bold yes)
+			)
+			(justify left bottom mirror)
+		)
+	)
+	(gr_text "COL6"
+		(at 306.6 106.475 90)
+		(layer "B.SilkS")
+		(uuid "543ec1df-5b3f-4c5c-925d-ec5603ff59b1")
+		(effects
+			(font
+				(size 1.5 1.5)
+				(thickness 0.3)
+				(bold yes)
+			)
+			(justify left bottom mirror)
+		)
+	)
+	(gr_text "COL0"
+		(at 334.5 106.425 90)
+		(layer "B.SilkS")
+		(uuid "54750509-3114-4c24-b6c8-298778f71355")
+		(effects
+			(font
+				(size 1.5 1.5)
+				(thickness 0.3)
+				(bold yes)
+			)
+			(justify left bottom mirror)
+		)
+	)
+	(gr_text "COL4"
+		(at 301.425 106.45 90)
+		(layer "B.SilkS")
+		(uuid "61d05b49-9ecb-4656-9e5d-a081ee55a14b")
+		(effects
+			(font
+				(size 1.5 1.5)
+				(thickness 0.3)
+				(bold yes)
+			)
+			(justify left bottom mirror)
+		)
+	)
 	(gr_text "${ISSUE_DATE}\n${REVISION}\n${COMMENT1}\n"
 		(at 392.684 188.087 0)
 		(layer "B.SilkS")
@@ -26231,6 +26413,174 @@
 				(thickness 0.15)
 			)
 			(justify mirror)
+		)
+	)
+	(gr_text "COL7"
+		(at 349.775 106.4 90)
+		(layer "B.SilkS")
+		(uuid "9144c3a4-2eba-4f3f-bdc6-48eb7d9eac9f")
+		(effects
+			(font
+				(size 1.5 1.5)
+				(thickness 0.3)
+				(bold yes)
+			)
+			(justify left bottom mirror)
+		)
+	)
+	(gr_text "ROW1"
+		(at 329.5 106.375 90)
+		(layer "B.SilkS")
+		(uuid "984c82f8-d121-4d8c-9af2-0895002c286e")
+		(effects
+			(font
+				(size 1.5 1.5)
+				(thickness 0.3)
+				(bold yes)
+			)
+			(justify left bottom mirror)
+		)
+	)
+	(gr_text "ROW4"
+		(at 321.85 106.3 90)
+		(layer "B.SilkS")
+		(uuid "98d0940c-de36-4a08-99ba-7006e3e393ee")
+		(effects
+			(font
+				(size 1.5 1.5)
+				(thickness 0.3)
+				(bold yes)
+			)
+			(justify left bottom mirror)
+		)
+	)
+	(gr_text "COL8"
+		(at 347.175 106.4 90)
+		(layer "B.SilkS")
+		(uuid "a675f19f-2bb6-498a-b464-c05451417386")
+		(effects
+			(font
+				(size 1.5 1.5)
+				(thickness 0.3)
+				(bold yes)
+			)
+			(justify left bottom mirror)
+		)
+	)
+	(gr_text "RSTO"
+		(at 311.7 106.35 90)
+		(layer "B.SilkS")
+		(uuid "b9ff63a7-292f-43b1-a946-c62f7ef083fd")
+		(effects
+			(font
+				(size 1.5 1.5)
+				(thickness 0.3)
+				(bold yes)
+			)
+			(justify left bottom mirror)
+		)
+	)
+	(gr_text "VCC"
+		(at 288.775 106.6 90)
+		(layer "B.SilkS")
+		(uuid "ba098787-6f48-4cca-a2f1-e1dfdf853b4e")
+		(effects
+			(font
+				(size 1.5 1.5)
+				(thickness 0.3)
+				(bold yes)
+			)
+			(justify left bottom mirror)
+		)
+	)
+	(gr_text "ROW0"
+		(at 332.05 106.425 90)
+		(layer "B.SilkS")
+		(uuid "beb18418-f8a3-460c-bbdb-24a59ca5e9bf")
+		(effects
+			(font
+				(size 1.5 1.5)
+				(thickness 0.3)
+				(bold yes)
+			)
+			(justify left bottom mirror)
+		)
+	)
+	(gr_text "CAPLK"
+		(at 337.025 106.425 90)
+		(layer "B.SilkS")
+		(uuid "c3aae931-2263-49fb-b671-54b5b6e598cc")
+		(effects
+			(font
+				(size 1.5 1.5)
+				(thickness 0.3)
+				(bold yes)
+			)
+			(justify left bottom mirror)
+		)
+	)
+	(gr_text "Plate Ground"
+		(at 223.675 76.55 0)
+		(layer "B.SilkS")
+		(uuid "c4ea933f-029d-4336-8a1a-4277a17362cc")
+		(effects
+			(font
+				(size 1.5 1.5)
+				(thickness 0.1875)
+			)
+			(justify left bottom mirror)
+		)
+	)
+	(gr_text "ROW3"
+		(at 314.2 106.45 90)
+		(layer "B.SilkS")
+		(uuid "ca4a9fba-55a4-4503-8e2f-2aa9b1eb8e07")
+		(effects
+			(font
+				(size 1.5 1.5)
+				(thickness 0.3)
+				(bold yes)
+			)
+			(justify left bottom mirror)
+		)
+	)
+	(gr_text "COL2"
+		(at 296.4 106.425 90)
+		(layer "B.SilkS")
+		(uuid "d0001ce0-6d15-489e-b4d2-411e31a151c0")
+		(effects
+			(font
+				(size 1.5 1.5)
+				(thickness 0.3)
+				(bold yes)
+			)
+			(justify left bottom mirror)
+		)
+	)
+	(gr_text "COL10"
+		(at 342.1 106.425 90)
+		(layer "B.SilkS")
+		(uuid "eb234fba-82bd-4d47-a691-a2470a6c1bc6")
+		(effects
+			(font
+				(size 1.5 1.5)
+				(thickness 0.3)
+				(bold yes)
+			)
+			(justify left bottom mirror)
+		)
+	)
+	(gr_text "GND"
+		(at 309.125 106.425 90)
+		(layer "B.SilkS")
+		(uuid "f9087b36-350e-4941-8230-83e67bc7c73a")
+		(effects
+			(font
+				(size 1.5 1.5)
+				(thickness 0.3)
+				(bold yes)
+			)
+			(justify left bottom mirror)
 		)
 	)
 	(via
