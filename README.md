@@ -31,10 +31,10 @@ A [printable 1x25 pin cable end](printable_parts/connector_keyboard_side.stl) is
 
 ## To Do
 I'd love some help from the community to accomplish the following:
-- Set up a group buy for plates and PCBs
 - Model a Cherry-compatible set of keycaps for printing or (ideally) injection molding
 - Model a compatible external enclosure: Allowing complete replacemend 128D keyboards to be built
 - Design a cabling solution for 128D keyboards
+- Set up a group buy for kits and/or assembled keyboards
 
 ## Authors
 [Jeff Flitton](mailto:jeff@flitton.dev) - Project creator, plate and printable part designer
