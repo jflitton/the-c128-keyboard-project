@@ -41,3 +41,11 @@ I'd love some help from the community to accomplish the following:
 
 ## Credits
 [Original PCB design](https://codeberg.org/jgrip/c128-keyboard) by [Johan Grip](https://codeberg.org/jgrip/), maker of the [C128 Neo](https://c128.se/).  Minor fit adjustments and latch circuit changes were made.
+
+## Disclaimer
+This project is provided as-is, without any express or implied warranty.
+By using, building, or modifying this hardware, you acknowledge that you do so at your own risk. The authors and contributors are not responsible for any damage, data loss, injury, or other consequences resulting from its use.
+
+This project is a community-driven, open-hardware design intended for educational and hobbyist use. It is not affiliated with, endorsed by, or supported by Commodore International or any successor entities.
+
+All trademarks, including “Commodore”, “C128”, and related names, are the property of their respective owners and are used here for descriptive and compatibility purposes only.
