@@ -25734,6 +25734,50 @@
 			)
 		)
 	)
+	(gr_circle
+		(center 184.525 90.575)
+		(end 184.8 90.375)
+		(stroke
+			(width 0.15)
+			(type solid)
+		)
+		(fill yes)
+		(layer "B.SilkS")
+		(uuid "6dfe528e-dccd-4ecc-bf7a-303bbdd2f8a8")
+	)
+	(gr_circle
+		(center 276.215037 93.15)
+		(end 276.490037 92.95)
+		(stroke
+			(width 0.15)
+			(type solid)
+		)
+		(fill yes)
+		(layer "B.SilkS")
+		(uuid "8fd09684-0bf4-4c66-8eff-3cb31a6dff91")
+	)
+	(gr_circle
+		(center 142.740037 170)
+		(end 143.015037 169.8)
+		(stroke
+			(width 0.15)
+			(type solid)
+		)
+		(fill yes)
+		(layer "B.SilkS")
+		(uuid "ce122e58-a55b-41a5-a485-877619509be3")
+	)
+	(gr_circle
+		(center 132.940037 169.45)
+		(end 133.215037 169.25)
+		(stroke
+			(width 0.15)
+			(type solid)
+		)
+		(fill yes)
+		(layer "B.SilkS")
+		(uuid "dd62fbe9-3e7a-41b7-bb78-b6555a7600c3")
+	)
 	(gr_line
 		(start 138.9 194.55)
 		(end 138.9 206)
