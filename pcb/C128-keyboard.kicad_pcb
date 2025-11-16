@@ -8,8 +8,9 @@
 	)
 	(paper "A2")
 	(title_block
-		(date "2025-10-18")
-		(rev "rev.2.2")
+		(title "C128 Keyboard PCB")
+		(date "2025-11-16")
+		(rev "rev.2.3")
 	)
 	(layers
 		(0 "F.Cu" signal)
@@ -25827,6 +25828,17 @@
 		)
 		(layer "Edge.Cuts")
 		(uuid "2e442ec7-c4f4-495a-a719-53bd48da6522")
+	)
+	(gr_circle
+		(center 305.9 195.025)
+		(end 309.025 195.025)
+		(stroke
+			(width 0.1)
+			(type solid)
+		)
+		(fill yes)
+		(layer "Edge.Cuts")
+		(uuid "3c90b473-a66d-4f26-951f-54d247f9881b")
 	)
 	(gr_line
 		(start 474 206)
