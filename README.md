@@ -1,5 +1,5 @@
 # the-c128-keyboard-project
-This project contains designs for the plate, circuit board, and various 3d-printable bits needed to build a mechanical keyboard for any model of the Commodore 128.  It mounts using the stock hardware in the flat, D, and DCR models.  
+This project contains designs for the plate, circuit board, and various 3d-printable bits needed to build a mechanical keyboard for the Commodore 128.
 
 This work is very intentionally licensed for commercial use in the hope that someone will produce and sell these parts in kit and/or assembled form.  See [LICENSE.md](LICENSE.md) for more details.
 
@@ -7,6 +7,16 @@ This work is very intentionally licensed for commercial use in the hope that som
 1. Provide a replacement keyboard for original Commodore 128 machines.  This is important because the plungers in the original Mitsumi keyboards are prone to cracking and crumbling and the external 128D(CR) keyboards are getting harder to find in reasonable condition.
 
 2. Provide a viable option for those building a new Commodore 128 compatible machine (e.g. using the [C128 NEO](https://c128.se/))
+
+## Configurations
+While the goal is to provide fully functional, tested configurations, we're not there yet.  Here's the current status:
+
+|Configuration|Design Complete|Tested|Notes|
+|---|---|---|---|
+|C128 Flat, re-using original keycaps|Yes|Yes|Fully functional
+|C128 Flat, using modern keycaps|No|No|Keycaps not modeled and not commercially available|
+|C128 DCR keyboard housing, re-using original keycaps|No|No|Fits in enclosure, but DCR keycaps use stabiliers not currently supported by the plate|
+|C128 DCR keyboard housing, using modern keycaps|No|No|Stabiliers not currently supported by the plate.  Keycaps not modeled and not commerically available.|
 
 ## Plate design
 The plate is designed to be laser cut from .060" cold rolled steel sheet (~1.5mm thick).  The [step file](plate/plate.step) is all you should need to send to a laser cutter.  The keyswitch cutouts are just a little roomier than the typical 14mm squares to accommodate powder coating, which I highly recommend.
