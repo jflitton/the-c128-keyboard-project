@@ -44,25 +44,25 @@ are in [`stl/`](stl/); run `make` to regenerate them after changing parameters.
   bridges the tray joint.  Once the plate is screwed down the
   steel plate is the structural spine — the printed parts just hang off it.
 * The floor is tilted 5° relative to the plate, so the case is 18 mm tall at the front and
-  31 mm at the rear.  Overall footprint is 410 × 147 mm.
+  31 mm at the rear.  Overall footprint is 410 x 147 mm.
 * The rear wall has a standard DB25 panel-connector cutout (47.04 mm hole spacing) at
   x ≈ 43 mm, directly behind the FFC connector on the PCB.  Set `rear_port = "cable"` for a
   plain 9 mm grommet hole instead, or `"none"`.
-* Six Ø12.5 × 1 mm recesses in the underside take common rubber bumper feet.
+* Six Ø12.5 x 1 mm recesses in the underside take common rubber bumper feet.
 
 ## Printing
 
-All four parts fit a 256 × 256 mm bed (Bambu P2S / P1S / X1C) with room to spare:
+All four parts fit a 256 x 256 mm bed (Bambu P2S / P1S / X1C) with room to spare:
 
 | part | size (mm) | orientation |
 |---|---|---|
-| tray_left | 198 × 149 × 28 | as exported (floor down) |
-| tray_right | 221 × 149 × 28 | as exported (floor down) |
-| bezel_left | 232 × 147 × 29 | as exported (top face down) |
-| bezel_right | 186 × 147 × 29 | as exported (top face down) |
+| tray_left | 198 x 149 x 28 | as exported (floor down) |
+| tray_right | 221 x 149 x 28 | as exported (floor down) |
+| bezel_left | 232 x 147 x 29 | as exported (top face down) |
+| bezel_right | 186 x 147 x 29 | as exported (top face down) |
 
 The STLs are already in their print orientation.  Suggested settings: 0.2 mm layers,
-4–5 walls, 25 % infill, PETG or ABS/ASA preferred over PLA for the tray (warping over a
+4-5 walls, 25 % infill, PETG or ABS/ASA preferred over PLA for the tray (warping over a
 220 mm part is the main risk — use a brim). I printed with PLA support material and PETG filament
 on a textured plate, mostly because I don't have a smooth PETG plate.
 
@@ -70,12 +70,12 @@ on a textured plate, mostly because I don't have a smooth PETG plate.
 
 | qty | item | where |
 |---|---|---|
-| 4 | M3 × 6 **wafer / ultra-low-profile head**, head ≤ 0.9 mm tall, ≤ 6 mm dia | plate → rear tray bosses.  A normal button/pan head is too tall; see `plate_screw_head_h` |
+| 4 | M3 x 6 **wafer / ultra-low-profile head**, head ≤ 0.9 mm tall, ≤ 6 mm dia | plate → rear tray bosses.  A normal button/pan head is too tall; see `plate_screw_head_h` |
 | 4 | M3 heat-set insert, Ø4 hole | rear tray bosses |
-| 5 | M3 × 8 | floor → rear bezel columns |
+| 5 | M3 x 8 | floor → rear bezel columns |
 | 5 | M3 heat-set insert, Ø4 hole | rear bezel columns |
-| 2 | M3 × 8 | floor → front bezel columns (self-tapping into a 2.6 mm hole; the columns are only 6 mm dia) |
-| 1 | DB25 panel-mount connector + 2 × 4-40 jack screws | rear wall |
+| 2 | M3 x 8 | floor → front bezel columns (self-tapping into a 2.6 mm hole; the columns are only 6 mm dia) |
+| 1 | DB25 panel-mount connector + 2 x 4-40 jack screws | rear wall |
 | 6 | rubber bumper feet, ≤ 12 mm | underside |
 
 Assembly order: fit inserts → join tray halves (drop the left half's tongue into the right
@@ -94,8 +94,8 @@ spacebar at 9u (`space_cap_w`).  `key_clear` (1.2 mm) is the gap between every c
 bezel.  Set `group_openings = false` for a single large opening instead.
 
 The bezel top sits 2.9 mm above the plate.  Measured on a built
-keyboard with original C128 caps on Outemu mid-low switches, the keycap skirts sit 6.3–7.2 mm
-above the plate at rest and 3.8–4.6 mm when pressed, so there is over 1 mm of margin.  If you
+keyboard with original C128 caps on Outemu mid-low switches, the keycap skirts sit 6.3-7.2 mm
+above the plate at rest and 3.8-4.6 mm when pressed, so there is over 1 mm of margin.  If you
 use different caps or switches, check that and adjust `bezel_t` / `bezel_gap`.
 
 ## Parameters worth knowing
