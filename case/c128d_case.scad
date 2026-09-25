@@ -102,6 +102,10 @@ cable_d       = 9;      // for rear_port = "cable"
 
 foot_d        = 12.5;   // rubber bumper recesses in the underside
 foot_depth    = 1.0;
+foot_side     = 16;     // outer side edge -> end feet centers
+foot_front    = 13;     // front wall inner face -> front row centers
+foot_rear     = 18;     // rear wall inner face -> rear row centers.  Deeper than the front so the
+                        // recesses clear the rear column counterbores (y ~72.7-79.2)
 
 front_ledge   = true;   // rest strip under the plate's front edge
 side_ledge    = true;   // rest strips under the plate's side edges
@@ -204,8 +208,20 @@ function yf(y)  = (y - cav_y0) / cos(tilt);    // plate y -> floor-frame y'
 
 port_z = (zfl(cav_y1) - plate_t) / 2;
 
-feet = [[out_x0 + 16, cav_y0 + 13], [(out_x0 + out_x1) / 2, cav_y0 + 13], [out_x1 - 16, cav_y0 + 13],
-        [out_x0 + 16, cav_y1 - 13], [(out_x0 + out_x1) / 2, cav_y1 - 13], [out_x1 - 16, cav_y1 - 13]];
+// Six feet: two rows of three, at the ends and the middle of the case.
+feet = [for (y = [cav_y0 + foot_front, cav_y1 - foot_rear])
+            for (x = [out_x0 + foot_side, (out_x0 + out_x1) / 2, out_x1 - foot_side]) [x, y]];
+
+// Every foot recess must keep at least 1 mm of floor between it and the column screw
+// counterbores, and stay off the tray lap joint, whose underside seam is at tray_split_x
+// and whose thinned floor runs to tray_split_x + lap.
+for (f = feet) {
+    for (c = concat([for (r = rear_cols) [r[0], rear_col_y]], front_cols))
+        assert(norm(f - c) >= (foot_d + cbore_d) / 2 + 1,
+               str("foot at ", f, " runs into the column screw at ", c));
+    assert(f[0] + foot_d / 2 + 1 <= tray_split_x || f[0] - foot_d / 2 - 1 >= tray_split_x + lap + joint_clear,
+           str("foot at ", f, " sits on the tray lap joint"));
+}
 
 echo(str("case footprint: ", out_x1 - out_x0, " x ", out_y1 - out_y0, " mm"));
 echo(str("height front ", main_top + depth_front + floor_t, " mm, rear ~",
