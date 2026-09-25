@@ -397,11 +397,11 @@ module tray() {
 module tray_joint(c) {
     xs = tray_split_x;
     // upper half of the floor between the wall inner faces
-    floorf() translate([xs - 1, -c, -floor_t / 2 + c])
-        cube([lap + 1 - c, yf(cav_y1) + 2 * c, floor_t / 2 - c + 0.01]);
+    floorf() translate([xs - 1, -c, -floor_t / 2 - c])
+        cube([lap + 1 + c, yf(cav_y1) + 2 * c, floor_t / 2 + c + 0.01]);
     // outer half of the front and rear walls, full height, including the floor beneath them
-    translate([xs - 1, out_y0 - 1, -150]) cube([lap_w + 1 - c, wall / 2 + 1 + c, 300]);
-    translate([xs - 1, out_y1 - wall / 2 - c, -150]) cube([lap_w + 1 - c, wall / 2 + 1 + c, 300]);
+    translate([xs - 1, out_y0 - 1, -150]) cube([lap_w + 1 + c, wall / 2 + 1 + c, 300]);
+    translate([xs - 1, out_y1 - wall / 2 - c, -150]) cube([lap_w + 1 + c, wall / 2 + 1 + c, 300]);
 }
 
 // tray_left / tray_right: the two printable halves.  Left is everything west of the split
