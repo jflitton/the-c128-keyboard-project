@@ -131,7 +131,8 @@ If the fit needs adjusting, the knobs are in the `.scad`; change, `make`, reprin
 bezel half:
 
 * won't snap in or needs too much force: raise `hook_clear` (0.25 -> 0.35) or lower `hook_bump`;
-* loose or rattles: lower `hook_clear`, or raise `hook_bump` by 0.1;
+* loose or rattles: raise `hook_preload` (0.1 -> 0.2), or raise `hook_bump` by 0.1;
+* clicks but the front edge won't seat flat: lower `hook_preload` toward 0;
 * tab feels stiff or whitens: lengthen `hook_len` (up to ~11.5; the floor is 12.6 below the
   plate) or thin `hook_t` to 1.0;
 * catch shears off: thicken `hook_t` to 1.4 and raise `hook_len` to keep the strain down;

@@ -115,7 +115,10 @@ hook_t        = 1.2;    // tab thickness (= skirt_t; the tab is a taller piece o
 hook_len      = 11;     // tab length below the bezel underside (floor is ~12.6 below the plate at the front)
 hook_bump     = 0.8;    // catch protrusion beyond the tab face; it sits 0.2 from the wall, so 0.6 engages
 hook_catch_h  = 2.0;    // catch height, 45 deg lead-in below and 45 deg release above
-hook_clear    = 0.25;   // pocket clearance around the catch
+hook_clear    = 0.25;   // pocket clearance around the catch (bottom and sides; the roof is set by hook_preload)
+hook_preload  = 0.1;    // how far the pocket roof sits below the catch's release face at the wall plane, so
+                        // the tab's spring pulls the bezel down onto the wall.  0 = just touching, no play.
+                        // Must be <= 0 with hook_release = 90 (a flat top face can't ride onto the roof).
 hook_pocket_d = 1.0;    // pocket depth into the wall inner face (leaves wall - 1.0 outside)
 hook_release  = 55;     // angle of the catch's top (release) face, degrees from horizontal.
                         // 45 = symmetric, lifts off easily; 60-70 holds harder; 90 = permanent
@@ -349,12 +352,16 @@ module tray_cuts() {
 
 // hook_pocket: what the tray gives up for one snap tab at plate-x.  A blind pocket in the
 // front wall's inner face where the catch lands, and a relief in the front ledge behind the
-// tab so the tab can hang down and flex inward.
+// tab so the tab can hang down and flex inward.  The pocket's roof edge is what the catch's
+// release face bears on, so it is placed where that face crosses the wall plane (the tab sits
+// 0.2 off the wall), less hook_preload; a roof with clearance above the catch lets the bezel lift.
 module hook_pocket(x) {
     zc = z_top - hook_len;                       // bottom of the catch
+    rel = hook_bump / tan(hook_release);         // vertical run of the release face, as in bezel_hook()
+    z_roof = zc + hook_catch_h - rel * 0.2 / hook_bump - hook_preload;
     // blind pocket in the wall's inner face
     translate([x - hook_w / 2 - hook_clear, cav_y0 - hook_pocket_d, zc - hook_clear])
-        cube([hook_w + 2 * hook_clear, hook_pocket_d + 0.01, hook_catch_h + 2 * hook_clear]);
+        cube([hook_w + 2 * hook_clear, hook_pocket_d + 0.01, z_roof - (zc - hook_clear)]);
     // relieve the front ledge from the wall face to its inner edge so the tab can hang and flex
     translate([x - hook_w / 2 - 1, cav_y0 - 0.01, zc - 1])
         cube([hook_w + 2, (PY0 + 1.24) - cav_y0 + 0.02, -plate_t - (zc - 1)]);
