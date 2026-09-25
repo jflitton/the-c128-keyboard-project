@@ -83,7 +83,9 @@ insert_depth  = 6.0;
 tap_d         = 2.6;    // self-tapping M3 hole (front bezel columns are only 6 mm dia, so we can't use the heat-set inserts here)
 screw_clear_d = 3.4;
 cbore_d       = 6.5;
-cbore_depth   = 1.5;
+case_screw_head_h = 3.0;  // head height of the M3x8 case screws (socket cap 3.0, button head 1.65)
+screw_recess  = 0.5;    // how far the case screw heads sit inside the underside
+cbore_floor   = 1.5;    // material left under the screw head (floor + column pad); sets thread engagement
 
 tray_split_x  = -5;     // tray lap joint position (plate X)
 bezel_split_x = 30;     // bezel joint position (plate X), measured at the bezel underside
@@ -206,6 +208,14 @@ y_pocket0 = y_deck0 + 1.4;
 function zfl(y) = -depth_front - (y - cav_y0) * tan(tilt);
 function yf(y)  = (y - cav_y0) / cos(tilt);    // plate y -> floor-frame y'
 
+// Case screw counterbores.  A recessed head needs a deeper counterbore than the floor allows,
+// so the tray grows a pad on the floor under each bezel column and the column is shortened
+// to match; the screw's grip (and so its length) stays the same.
+cbore_depth = case_screw_head_h + screw_recess;
+col_pad_h   = max(0, cbore_depth + cbore_floor - floor_t);
+col_pad_d   = 10;
+col_xy      = concat([for (r = rear_cols) [r[0], rear_col_y]], front_cols);  // all seven bezel columns
+
 port_z = (zfl(cav_y1) - plate_t) / 2;
 
 // Six feet: two rows of three, at the ends and the middle of the case.
@@ -216,7 +226,7 @@ feet = [for (y = [cav_y0 + foot_front, cav_y1 - foot_rear])
 // counterbores, and stay off the tray lap joint, whose underside seam is at tray_split_x
 // and whose thinned floor runs to tray_split_x + lap.
 for (f = feet) {
-    for (c = concat([for (r = rear_cols) [r[0], rear_col_y]], front_cols))
+    for (c = col_xy)
         assert(norm(f - c) >= (foot_d + cbore_d) / 2 + 1,
                str("foot at ", f, " runs into the column screw at ", c));
     assert(f[0] + foot_d / 2 + 1 <= tray_split_x || f[0] - foot_d / 2 - 1 >= tray_split_x + lap + joint_clear,
@@ -310,9 +320,13 @@ module tray_shell() {
 //   * two rear-corner bosses carrying 4.6 mm pins into the plate's 5 mm locating holes;
 //   * two front-corner rests carrying 3.1 mm pins into the plate's front M3 holes (no screws
 //     there; the bezel's front columns clamp that corner down);
-//   * thin ledges under the plate's front and side edges so it cannot sag between bosses.
+//   * thin ledges under the plate's front and side edges so it cannot sag between bosses;
+//   * pads under the seven bezel columns, deep enough for the recessed case screw heads.
 // Everything the plate rests on tops out at -plate_t, i.e. the plate's underside.
 module tray_features() {
+    // pads under the bezel columns, parallel to the floor like the column ends above them
+    if (col_pad_h > 0) for (c = col_xy)
+        floorf() translate([c[0], yf(c[1]), -0.6]) cylinder(d = col_pad_d, h = col_pad_h + 0.6);
     // rear plate bosses, ribbed to the rear wall
     for (x = rear_holes_x) hull() {
         post(x, rear_hole_y, 7, -plate_t);
@@ -356,7 +370,6 @@ module tray_cuts() {
     for (f = feet) floorf() translate([f[0], yf(f[1]), -floor_t - 1]) cylinder(d = foot_d, h = 1 + foot_depth);
     // rear port
     if (rear_port == "db25") translate([port_x, out_y1 - wall / 2, port_z]) rotate([90, 0, 0]) {
-        linear_extrude(wall + 4, center = true) hull() for (sx = [-1, 1]) translate([sx * (41.6 / 2 - 1.5), 0]) circle(r = 1.5, $fn = 24) ;
         linear_extrude(wall + 4, center = true) square([41.6, 12.8], center = true);
         for (sx = [-1, 1]) translate([sx * 23.52, 0, 0]) cylinder(d = 3.2, h = wall + 4, center = true, $fn = 24);
     }
@@ -396,8 +409,8 @@ module hook_guide_rib(x) {
     }
 }
 
-// column_floor_hole: a screw hole through the floor under a bezel column, counterbored from
-// below so the screw head sits inside the floor.
+// column_floor_hole: a screw hole through the floor and column pad under a bezel column,
+// counterbored from below so the screw head sits screw_recess inside the underside.
 module column_floor_hole(x, y) {
     translate([x, y, -120]) cylinder(d = screw_clear_d, h = 120);
     translate([x, y, -120]) cylinder(d = cbore_d, h = 120 + zfl(y) - (floor_t - cbore_depth));
@@ -494,15 +507,15 @@ module bezel_columns() {
     }
 }
 
-// bezel_column: one column of diameter d from 0.2 mm above the floor up to ztop, with a
-// screw hole of diameter hole_d and depth hole_h up from the floor.
+// bezel_column: one column of diameter d from 0.2 mm above the tray's column pad up to ztop,
+// with a screw hole of diameter hole_d and depth hole_h up from the pad.
 module bezel_column(x, y, d, ztop, hole_d, hole_h) {
     difference() {
         intersection() {
             translate([x, y, -120]) cylinder(d = d, h = 120 + ztop);
-            floorf() translate([-1000, -1000, 0.2]) cube([2000, 2000, 300]);
+            floorf() translate([-1000, -1000, col_pad_h + 0.2]) cube([2000, 2000, 300]);
         }
-        translate([x, y, -120]) cylinder(d = hole_d, h = 120 + zfl(y) + hole_h + 1);
+        translate([x, y, -120]) cylinder(d = hole_d, h = 120 + zfl(y) + col_pad_h + hole_h + 1);
     }
 }
 

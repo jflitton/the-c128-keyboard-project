@@ -72,9 +72,9 @@ on a textured plate, mostly because I don't have a smooth PETG plate.
 |---|---|---|
 | 4 | M3 x 6 **wafer / ultra-low-profile head**, head ≤ 0.9 mm tall, ≤ 6 mm dia | plate → rear tray bosses.  A normal button/pan head is too tall; see `plate_screw_head_h` |
 | 4 | M3 heat-set insert, Ø4 hole | rear tray bosses |
-| 5 | M3 x 8 | floor → rear bezel columns |
+| 5 | M3 x 8 socket cap | floor → rear bezel columns.  Heads sit 0.5 mm inside the underside; for button heads set `case_screw_head_h = 1.65` |
 | 5 | M3 heat-set insert, Ø4 hole | rear bezel columns |
-| 2 | M3 x 8 | floor → front bezel columns (self-tapping into a 2.6 mm hole; the columns are only 6 mm dia) |
+| 2 | M3 x 8 socket cap | floor → front bezel columns (self-tapping into a 2.6 mm hole; the columns are only 6 mm dia) |
 | 1 | DB25 panel-mount connector + 2 x 4-40 jack screws | rear wall |
 | 6 | rubber bumper feet, ≤ 12 mm | underside |
 
