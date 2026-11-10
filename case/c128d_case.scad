@@ -13,7 +13,7 @@
 // (Bambu P2S in my setup):
 //
 //   tray_left / tray_right    bottom tray, joined by a lap joint at `tray_split_x`
-//   bezel_left / bezel_right  top frame, butt-joined at `bezel_split_x`
+//   bezel_left / bezel_right  top frame, glued on a 45 deg scarf joint at `bezel_split_x`
 //
 // The two split lines are staggered so each bezel half straddles the tray joint.
 //
@@ -152,7 +152,9 @@ front_cols   = [[-161.65, -49.82], [183.28, -49.82]];
 
 // slots / notches in the rear edge (bezel columns pass through these)
 // [x, column diameter]
-rear_cols    = [[-170.0, 8], [10.87, 8], [128.43, 7.4], [167.63, 8], [191.63, 8]];
+// The notch at 167.63 has a flat bottom at y = 71.96, so an 8 mm column at rear_col_y would
+// touch it; 7 mm leaves 0.5 mm.  The others are round-bottomed slots with ~1 mm to spare.
+rear_cols    = [[-170.0, 8], [10.87, 8], [128.43, 7.4], [167.63, 7], [191.63, 8]];
 rear_col_y   = rear_hole_y + 0.5;
 
 // 5 mm locating holes at the rear corners

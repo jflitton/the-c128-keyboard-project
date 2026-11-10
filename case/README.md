@@ -4,6 +4,8 @@ A four-piece printed enclosure that turns the plate + PCB from this project into
 stand-alone keyboard for a 128D/DCR whose original keyboard has gone missing.  It is a
 functional case, not a replica of the Commodore housing.
 
+Designed by [Stephen Durham](https://github.com/steveed); the first-person notes below are his.
+
 Everything is generated from [`c128d_case.scad`](c128d_case.scad).  Ready-to-slice STLs
 are in [`stl/`](stl/); run `make` to regenerate them after changing parameters.
 
@@ -12,8 +14,8 @@ are in [`stl/`](stl/); run `make` to regenerate them after changing parameters.
 ## How it goes together
 
 ```
-                 bezel (top frame, 2 halves, butt joint at x=30)
-   ┌──────────────────────────────────────────-──────────────┐
+                 bezel (top frame, 2 halves, glued scarf joint at x=30)
+   ┌─────────────────────────────────────────────────────────┐
    │  ┌──────────────── keycaps ────────────────┐            │
    │  │  plate (1.5 mm steel, sits on bosses)   │  4 plate   │  <- wafer-head screws sit in
    │  │  switches / PCB                         │  screws    │     pockets under the bezel
@@ -27,6 +29,7 @@ are in [`stl/`](stl/); run `make` to regenerate them after changing parameters.
   sit on pins and are clamped by the bezel.
 * Four snap tabs on the bezel's front skirt click into pockets in the tray's front wall (see
   *Front snap hooks* below); press the front edge down until they click, lift firmly to release.
+  The hooks are still experimental.
 * The bezel has seven columns hanging from its underside.  Five pass through the slots and
   notches already cut in the plate's rear edge and two pass through the Ø6.5 holes in the
   front corners.  All seven are screwed from underneath through the floor, so no fasteners
@@ -46,8 +49,8 @@ are in [`stl/`](stl/); run `make` to regenerate them after changing parameters.
 * The floor is tilted 5° relative to the plate, so the case is 18 mm tall at the front and
   31 mm at the rear.  Overall footprint is 410 x 147 mm.
 * The rear wall has a standard DB25 panel-connector cutout (47.04 mm hole spacing) at
-  x ≈ 43 mm, directly behind the FFC connector on the PCB.  Set `rear_port = "cable"` for a
-  plain 9 mm grommet hole instead, or `"none"`.
+  x ≈ 43 mm, behind the PCB's 1x25 pin header (CN2, which spans x ≈ -8 to 53 mm).  Set
+  `rear_port = "cable"` for a plain 9 mm grommet hole instead, or `"none"`.
 * Six Ø12.5 x 1 mm recesses in the underside take common rubber bumper feet.
 
 ## Printing
@@ -58,8 +61,8 @@ All four parts fit a 256 x 256 mm bed (Bambu P2S / P1S / X1C) with room to spare
 |---|---|---|
 | tray_left | 198 x 149 x 28 | as exported (floor down) |
 | tray_right | 221 x 149 x 28 | as exported (floor down) |
-| bezel_left | 232 x 147 x 29 | as exported (top face down) |
-| bezel_right | 186 x 147 x 29 | as exported (top face down) |
+| bezel_left | 232 x 147 x 26 | as exported (top face down) |
+| bezel_right | 186 x 147 x 26 | as exported (top face down) |
 
 The STLs are already in their print orientation.  Suggested settings: 0.2 mm layers,
 4-5 walls, 25 % infill, PETG or ABS/ASA preferred over PLA for the tray (warping over a
@@ -117,6 +120,9 @@ Preview a region of the assembled case with e.g.
 
 ## Front snap hooks
 
+**Status: experimental.**  On the prints so far the tabs engage but don't reliably click, and
+the holding force is marginal.  The geometry below is still being tuned.
+
 Nothing else fastens the bezel to the tray along the front edge between the two corner
 columns, and the tray is only 18 mm tall there, so four snap hooks do it (`front_hooks`).
 The bezel skirt grows into four cantilever tabs (10 x 1.2 mm, 11 mm long) that hang down
@@ -151,7 +157,7 @@ Tab positions are `hook_x`; keep them off the tray lap joint (x -6..4) and the b
 ## Roadmap: toward the original look
 
 I like the look of the original keyboard case, this one is a bit square. It does the job but I think
-we could make it look a lot nicer. OG 128D keyboard (`docs/c128d-keyboard-reference.jpg`):
+we could make it look a lot nicer, closer to the OG 128D keyboard:
 
 1. **Big soft edges.**  Vertical corner radius of 10 mm or more (now `corner_r = 6`) and a
    proper rounded top edge instead of the 1.2 mm chamfer.  Removes most of the "box" feel.
