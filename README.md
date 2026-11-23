@@ -49,6 +49,8 @@ I'd love some help from the community to accomplish the following:
 ## Authors
 [Jeff Flitton](mailto:jeff@flitton.dev) - Project creator, plate and printable part designer
 
+[Stephen Durham](https://github.com/steveed) - Printable 128D case designer
+
 ## Credits
 [Original PCB design](https://codeberg.org/jgrip/c128-keyboard) by [Johan Grip](https://codeberg.org/jgrip/), maker of the [C128 Neo](https://c128.se/).  Minor fit adjustments and latch circuit changes were made.
 
